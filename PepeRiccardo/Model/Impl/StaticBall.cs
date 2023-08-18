@@ -2,12 +2,16 @@ using PepeRiccardo.Model.Api;
 
 namespace PepeRiccardo.Model.Impl
 {
+    /*
+    This is an implementation of IBall with a color, Score and Size
+    */
     public class StaticBall : IBall 
     {
-        string Color { get; private set; };
-        int Score { get; private set; };
-        double Size { get; private set; };
+        public string Color { get; protected set; }
+        public int Score { get; protected set; }
+        public double Size { get; protected set; }
 
+        // Constructor
         public StaticBall(string color, int score, double size) 
         {
             Color = color;
@@ -15,6 +19,7 @@ namespace PepeRiccardo.Model.Impl
             Size = size;
         }
 
-        public string StringRapresentation => "StaticBall Color: " + Color + " Score: " + Score + " Size: " + Size;
+        // ToString Method
+        public virtual string StringRapresentation() => "StaticBall Color: " + Color + " Score: " + Score + " Size: " + Size;
     }
 }
