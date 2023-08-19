@@ -33,10 +33,12 @@ public class BallTest
     public void BallFactoryTest()
     {
         // New colorMap
-        Dictionary<string, int> colorMap = new Dictionary<string, int>();
-        colorMap["RED"] = 10;
-        colorMap["BLUE"] = 20;
-        colorMap["YELLOW"] = 30;
+        Dictionary<string, int> colorMap = new Dictionary<string, int>
+        {
+            ["RED"] = 10,
+            ["BLUE"] = 20,
+            ["YELLOW"] = 30
+        };
 
         // New factory
         IBallFactory factory = new BallFactory(colorMap, 15);

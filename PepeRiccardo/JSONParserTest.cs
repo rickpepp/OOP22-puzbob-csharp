@@ -12,16 +12,17 @@ public class JSONParserTest
         String colors = 
         "{\"ColorsList\":[[\"RED\",10],[\"YELLOW\",10],[\"BLUE\",10],[\"GREEN\",10],[\"BLACK\",10],[\"PURPLE\",10],[\"ORANGE\",10],[\"GREY\",10]]}";
     
-        Dictionary<string, int> dictionaryExpected = new Dictionary<string, int>();
-
-        dictionaryExpected.Add("RED",10);
-        dictionaryExpected.Add("YELLOW",10);
-        dictionaryExpected.Add("BLUE",10);
-        dictionaryExpected.Add("GREEN",10);
-        dictionaryExpected.Add("BLACK",10);
-        dictionaryExpected.Add("PURPLE",10);
-        dictionaryExpected.Add("ORANGE",10);
-        dictionaryExpected.Add("GREY",10);
+        Dictionary<string, int> dictionaryExpected = new Dictionary<string, int>
+        {
+            { "RED", 10 },
+            { "YELLOW", 10 },
+            { "BLUE", 10 },
+            { "GREEN", 10 },
+            { "BLACK", 10 },
+            { "PURPLE", 10 },
+            { "ORANGE", 10 },
+            { "GREY", 10 }
+        };
 
         Console.WriteLine(colors);
 
@@ -37,19 +38,27 @@ public class JSONParserTest
 
         Dictionary<string, List<(int, int)>> dictionaryExpected = new Dictionary<string, List<(int, int)>>();
 
-        List<(int, int)> listRED = new List<(int, int)>();
-        listRED.Add((0, 0));
-        listRED.Add((0, 1));
+        List<(int, int)> listRED = new List<(int, int)>
+        {
+            (0, 0),
+            (0, 1)
+        };
 
-        List<(int, int)> listYELLOW = new List<(int, int)>();
-        listYELLOW.Add((0, 2));
+        List<(int, int)> listYELLOW = new List<(int, int)>
+        {
+            (0, 2)
+        };
 
-        List<(int, int)> listBLUE = new List<(int, int)>();
-        listBLUE.Add((0, 4));
-        listBLUE.Add((0, 5));
+        List<(int, int)> listBLUE = new List<(int, int)>
+        {
+            (0, 4),
+            (0, 5)
+        };
 
-        List<(int, int)> listGREEN = new List<(int, int)>();
-        listGREEN.Add((0, 6));
+        List<(int, int)> listGREEN = new List<(int, int)>
+        {
+            (0, 6)
+        };
 
         dictionaryExpected.Add("RED", listRED);
         dictionaryExpected.Add("BLUE", listBLUE);
@@ -77,16 +86,17 @@ public class JSONParserTest
     {
         string colors = "{\"ColorsList\":[[\"RED\", \"#dd4538\"],[\"YELLOW\", \"#f6e357\"],[\"BLUE\", \"#2c5de9\"],[\"GREEN\", \"#63d661\"],[\"BLACK\", \"#7e7c81\"],[\"PURPLE\", \"#af70ca\"],[\"ORANGE\", \"#e4852f\"],[\"GREY\", \"#d7daea\"]]}";
 
-        Dictionary<string, string> dictionaryExpected = new Dictionary<string, string>();
-
-        dictionaryExpected.Add("RED", "#dd4538");
-        dictionaryExpected.Add("YELLOW", "#f6e357");
-        dictionaryExpected.Add("BLUE", "#2c5de9");
-        dictionaryExpected.Add("GREEN", "#63d661");
-        dictionaryExpected.Add("BLACK", "#7e7c81");
-        dictionaryExpected.Add("PURPLE", "#af70ca");
-        dictionaryExpected.Add("ORANGE", "#e4852f");
-        dictionaryExpected.Add("GREY", "#d7daea");
+        Dictionary<string, string> dictionaryExpected = new Dictionary<string, string>
+        {
+            { "RED", "#dd4538" },
+            { "YELLOW", "#f6e357" },
+            { "BLUE", "#2c5de9" },
+            { "GREEN", "#63d661" },
+            { "BLACK", "#7e7c81" },
+            { "PURPLE", "#af70ca" },
+            { "ORANGE", "#e4852f" },
+            { "GREY", "#d7daea" }
+        };
 
         Assert.Equal(dictionaryExpected, JSONParser.GetIstance().ParserColorsView(colors));
 
