@@ -15,16 +15,14 @@ namespace PepeRiccardo.Model.Impl
     // This is the parser, this is a Singleton class
     public class JSONParser : IJSONParser
     {
-        private static JSONParser parser;
+        private static JSONParser? _parser;
 
         private JSONParser() {}
 
         // To access statically
         public static JSONParser GetIstance(){
-            if(parser == null){
-                parser = new JSONParser();
-            }
-            return parser;
+            _parser ??= new JSONParser();
+            return _parser;
         }
 
         // This parse a json string to a dictionary (Name of the color: Score of the color)
