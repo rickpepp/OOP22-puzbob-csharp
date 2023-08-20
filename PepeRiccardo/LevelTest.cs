@@ -32,7 +32,7 @@ public class LevelTest
         var level = new Level(factory, (3, 3));
 
         // Decode the dictionary in a matrix
-        IBall[,] startingBall = level.GetStartBalls(ballsPosition);
+        IBall?[,] startingBall = level.GetStartBalls(ballsPosition);
 
         // Check if the values are the expected
         for (int i = 0; i < 3; i++)
@@ -40,18 +40,22 @@ public class LevelTest
             for (int j = 0; j < 3; j++) 
             {
                 var indexes = (i, j);
-                switch (indexes)
+                var ball = startingBall[i, j];
+                if (ball != null)
                 {
-                    case (0, 0):
-                    case (1, 0):
-                    case (2, 0): 
-                        Assert.Equal("StaticBall Color: RED Score: 10 Size: 15", startingBall[i, j].StringRapresentation());
-                        break;
-                    case (0, 1): 
-                        Assert.Equal("StaticBall Color: BLUE Score: 20 Size: 15", startingBall[i, j].StringRapresentation());
-                        break;
-                    default:
-                        break;
+                    switch (indexes)
+                    {
+                        case (0, 0):
+                        case (1, 0):
+                        case (2, 0): 
+                            Assert.Equal("StaticBall Color: RED Score: 10 Size: 15", ball.StringRapresentation());
+                            break;
+                        case (0, 1): 
+                            Assert.Equal("StaticBall Color: BLUE Score: 20 Size: 15", ball.StringRapresentation());
+                            break;
+                        default:
+                            break;
+                    }
                 }
             } 
         }

@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Numerics;
 using PepeRiccardo.Model.Api;
 
 namespace PepeRiccardo.Model.Impl
@@ -88,7 +90,7 @@ namespace PepeRiccardo.Model.Impl
             return time - timeToSubtract;
         }
 
-        public (int, int)? IsAttached(double wallHeight, IBall[,] matrixBall, FlyingBall ball)
+        public (int, int)? IsAttached(double wallHeight, IBall?[,] matrixBall, FlyingBall ball)
         {
             bool result = false;
 
@@ -146,8 +148,9 @@ namespace PepeRiccardo.Model.Impl
             // Check if there are any ball near to attach
             foreach ((int, int) neighbour in neighbourList)
             {
-                result = result | (IsPresent(neighbour, matrixBall) & IsNear(neighbour, ball.Position, wallHeight));
+                result |= IsPresent(neighbour, matrixBall) & IsNear(neighbour, ball.Position, wallHeight);
             }
+
 
             // If there are some adiacent balls return the index
             if (result && IsValid(possibleIndexes, maxColumnIndex))
@@ -158,11 +161,11 @@ namespace PepeRiccardo.Model.Impl
         }
 
         // Check if there is a ball in the specified cell
-        private Boolean IsPresent((int, int) indexes, IBall[,] matrixBall)
+        private bool IsPresent((int, int) indexes, IBall?[,] matrixBall)
         {
             try 
             {
-                return matrixBall[indexes.Item1, indexes.Item2] != null;
+                return matrixBall[indexes.Item2, indexes.Item1] != null;
             }
             catch (IndexOutOfRangeException)
             {

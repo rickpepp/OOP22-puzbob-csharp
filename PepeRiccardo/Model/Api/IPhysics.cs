@@ -6,6 +6,6 @@ namespace PepeRiccardo.Model.Api
     {
         (double, double) CalcBallPosition(FlyingBall ball, int cannonAngle, double time);
 
-        (int, int)? IsAttached(double wallHeight, IBall[,] matrixBall, FlyingBall ball);
+        (int, int)? IsAttached(double wallHeight, IBall?[,] matrixBall, FlyingBall ball);
     }
 }

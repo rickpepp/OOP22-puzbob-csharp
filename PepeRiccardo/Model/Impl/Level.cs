@@ -17,7 +17,7 @@ namespace PepeRiccardo.Model.Impl
         }
 
         // Read every item on the dictionary and put it in the correct place
-        public IBall[,] GetStartBalls(Dictionary<string, List<(int, int)>> ballsPosition)
+        public IBall?[,] GetStartBalls(Dictionary<string, List<(int, int)>> ballsPosition)
         {
             foreach ((string color, List<(int, int)> ballsList) in ballsPosition)
             {

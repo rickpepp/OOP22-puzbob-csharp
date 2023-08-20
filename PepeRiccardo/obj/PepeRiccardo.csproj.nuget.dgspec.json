@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj": {}
+    "C:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj": {
+    "C:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj",
+        "projectUniqueName": "C:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj",
         "projectName": "PepeRiccardo",
-        "projectPath": "c:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj",
+        "projectPath": "C:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\PepeRiccardo.csproj",
         "packagesPath": "C:\\Users\\ricca\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\obj\\",
+        "outputPath": "C:\\Users\\ricca\\OneDrive\\Documenti\\Unibo\\Programmazione ad Oggetti\\ProgettoCSharp\\OOP22-puzbob-csharp\\PepeRiccardo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ricca\\AppData\\Roaming\\NuGet\\NuGet.Config"
