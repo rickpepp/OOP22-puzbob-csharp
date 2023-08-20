@@ -15,7 +15,7 @@ namespace PepeRiccardo.Model.Impl
     // This is the parser, this is a Singleton class
     public class JSONParser : IJSONParser
     {
-        private static JSONParser? _parser;
+        private static JSONParser _parser;
 
         private JSONParser() {}
 
