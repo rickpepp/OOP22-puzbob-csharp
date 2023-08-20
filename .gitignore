@@ -3,3 +3,9 @@
 
 #Ignore bin folder
 bin
+
+#Ignore Debug folder
+Debug
+
+#Ignore .cache files
+*.cache
