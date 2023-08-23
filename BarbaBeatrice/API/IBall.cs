@@ -10,6 +10,6 @@ namespace BarbaBeatrice.API{
         double getBallSize {get;} 
 
         // Return a string describing  the state of the ball
-        string toString();
+        string ToString();
     }
 }

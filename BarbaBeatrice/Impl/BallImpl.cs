@@ -17,7 +17,7 @@ namespace BarbaBeatrice.Impl{
         int IBall.getScore => _score;
         double IBall.getBallSize => _size;
 
-        string IBall.toString() => "Color ball: " + _color + ", Score:" + _score + "; Size: " + _size;
+        public override string ToString() => "Color ball: " + _color + ", Score: " + _score + ", Size: " + _size;
 
     }
 }

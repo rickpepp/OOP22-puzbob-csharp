@@ -3,8 +3,8 @@ using BarbaBeatrice.API;
 
 namespace BarbaBeatrice.Impl{
     public class Board : IBoard{
-        private const int ROW_MATRIX = 8;
-        private const int COLUMNS_MATRIX = 8;
+        private const int ROW_MATRIX = 2;
+        private const int COLUMNS_MATRIX = 4;
 
         private Tuple<double, double> _dimension;
         private IBall?[,] _matrix;
@@ -65,7 +65,7 @@ namespace BarbaBeatrice.Impl{
             foreach(var ball in pointToCheck){
                 try{
                     if(_matrix[ball.Item1, ball.Item2] != null){
-                        neighbour.Add(ball,_matrix[ball.Item1, ball.Item2]);
+                        neighbour.Add(ball,_matrix[ball.Item1, ball.Item2]!);
                     }
                 }catch{
 
@@ -79,7 +79,7 @@ namespace BarbaBeatrice.Impl{
         private Dictionary<Tuple<int,int>, IBall> SameColorFinder(Dictionary<Tuple<int,int>, IBall> neighbour, IBall ball){
             Dictionary<Tuple<int, int>, IBall> sameColor = new();
             foreach(var position in neighbour.Keys){
-                if(neighbour[position].getColor == ball.getColor){
+                if(neighbour[position].getColor! == ball.getColor!){
                     sameColor.Add(position, neighbour[position]);
                 }
             }
@@ -107,7 +107,7 @@ namespace BarbaBeatrice.Impl{
         // Removes the list balls from the matrix
         private void Remove(Dictionary<Tuple<int,int>, IBall> list){
             foreach(var ball in list){
-                _score = _score + _matrix[ball.Key.Item1, ball.Key.Item2].getScore;
+                _score = _score + _matrix[ball.Key!.Item1, ball.Key!.Item2]!.getScore;
                 _matrix[ball.Key.Item1, ball.Key.Item2] = null;
             }
         }  
@@ -116,12 +116,18 @@ namespace BarbaBeatrice.Impl{
         private void CheckFreeBall(int x, int y)
         {
             Dictionary<Tuple<int, int>, IBall> neighbour = SearchNeighbour(x,y);
+            foreach(var position in neighbour.Keys){
+                if(_ballChecked.ContainsKey(position) == false){
+                    _ballChecked.Add(position, _matrix[position!.Item1, position!.Item2]!);
+                    CheckFreeBall(position.Item1, position.Item2);
+                }
+            }
         }
 
         // Returns true or false if the first line is empty or not
         private Boolean CheckFirstLineEmpty(){
-            foreach(var ball in _matrix){
-                if(ball != null){
+            for(int i = 0; i < COLUMNS_MATRIX; i++){
+                if(_matrix[0,i] != null){
                     return false;
                 }
             }
@@ -153,7 +159,7 @@ namespace BarbaBeatrice.Impl{
                     for(int k = 0; k < COLUMNS_MATRIX; k++){
                         if(_matrix[i,k] != null){
                             if(_ballChecked.ContainsKey(new Tuple<int,int>(i,k)) == false){
-                                _ballFree4Remove.Add(new Tuple<int,int>(i,k), _matrix[i,k]);
+                                _ballFree4Remove.Add(new Tuple<int,int>(i,k), _matrix[i,k]!);
                             }
                         }
                     }
@@ -168,7 +174,7 @@ namespace BarbaBeatrice.Impl{
                 for(int i = 0; i < ROW_MATRIX; i++){
                     for(int k = 0; k< COLUMNS_MATRIX; k++){
                         if(_matrix[i,k] != null){
-                            ballRemove.Add(new Tuple<int,int>(i,k), _matrix[i,k]);
+                            ballRemove.Add(new Tuple<int,int>(i,k), _matrix[i,k]!);
                         }
                     }
                 }
@@ -184,7 +190,7 @@ namespace BarbaBeatrice.Impl{
         {
             string label = "";
             foreach(var ball in _matrix){
-                label = label + "|" + ball.toString();
+                label = label + "|" + (ball == null ? "null" : ball.ToString());
             }
             return label;
         }

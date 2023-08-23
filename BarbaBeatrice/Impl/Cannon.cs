@@ -44,6 +44,6 @@ namespace BarbaBeatrice.Impl{
 
         public void Shot() => _ball = null;
 
-        public new string ToString() => "Cannon has angle: " + _angle + ", his position is: " + _cannonPosition.ToString() + ", his ball is: " + _ball.ToString();
+        public override string ToString() => "Cannon has angle: " + _angle + ", his position is: " + _cannonPosition.ToString() + (_ball==null ? "" : ", his ball is: " + _ball.ToString());
     }
 }
